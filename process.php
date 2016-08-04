@@ -8,7 +8,6 @@ $files = [ // destination IPs only used in RouterOS mode
 	"spam404" 				=> ["240.0.0.5"],
 	"malwaredomains.com" 	=> ["240.0.0.6"],
 	"malwaredomainlist.com"	=> ["240.0.0.7"],
-	"custom"				=> ["240.0.0.255"],
 ];
 
 // Might be a bit memory-intensive/slow... not strictly necessary, as RouterOS will just display a warning on duplicates. Only applicable in RouterOS mode
@@ -21,7 +20,7 @@ define('SKIP_DUPLICATES_CRC32', true);
 define('PER_FILE_LIMIT', 3000);
 
 // Enables output of bind9 zone files instead of RouterOS scripts. Forces skip_duplicates to ON
-define('BIND9_OUTPUT', true);
+define('BIND9_OUTPUT', false);
 
 // Name of Bind9 "null" zone file
 define('BIND9_NULL_ZONEFILE_NAME', '/etc/bind/db.null');
