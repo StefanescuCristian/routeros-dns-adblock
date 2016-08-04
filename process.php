@@ -10,6 +10,22 @@ $files = [ // destination IPs only used in RouterOS mode
 	"malwaredomainlist.com"	=> ["240.0.0.7"],
 ];
 
+//download the files before merging
+//dan pollock
+file_put_contents("source.dan-pollock.txt", fopen("http://someonewhocares.org/hosts/hosts",'r'));
+//hpHosts, partial
+file_put_contents("source.hphosts.txt", fopen("https://hosts-file.net/hphosts-partial.txt",'r'));
+//spam404
+file_put_contents("source.spam404.txt", fopen("https://raw.githubusercontent.com/Dawsey21/Lists/master/adblock-list.txt",'r'));
+//peter lowe
+file_put_contents("source.peter-lowe.txt", fopen("http://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&showintro=1&mimetype=plaintext",'r'));
+//mvps
+file_put_contents("source.mvps.txt", fopen("http://winhelp2002.mvps.org/hosts.txt",'r'));
+//malware domains
+file_put_contents("source.malwaredomains.com.txt", fopen("http://mirror1.malwaredomains.com/files/justdomains",'r'));
+//malware list
+file_put_contents("source.malwaredomainlist.com.txt", fopen("http://www.malwaredomainlist.com/hostslist/hosts.txt",'r'));
+
 // Might be a bit memory-intensive/slow... not strictly necessary, as RouterOS will just display a warning on duplicates. Only applicable in RouterOS mode
 define('SKIP_DUPLICATES', true);
 
@@ -17,7 +33,7 @@ define('SKIP_DUPLICATES', true);
 define('SKIP_DUPLICATES_CRC32', true);
 
 // Only applies to RouterOS output
-define('PER_FILE_LIMIT', 3000);
+define('PER_FILE_LIMIT', 900000);
 
 // Enables output of bind9 zone files instead of RouterOS scripts. Forces skip_duplicates to ON
 define('BIND9_OUTPUT', false);
